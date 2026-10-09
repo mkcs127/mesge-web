@@ -1,0 +1,62 @@
+MESGE WEB — SEGURIDAD, TRATAMIENTO DE DATOS Y FUNCIONAMIENTO
+Resumen ejecutivo · Prototipo v1.0
+
+1. QUÉ ES
+Versión web del instrumento MESGE (Matriz de Evaluación de Seguridad para
+Gestión Escolar). Guía al evaluador paso a paso por los 22 controles de las
+5 dimensiones, calcula el Índice de Madurez de Seguridad (IMS, 0–100) con la
+misma fórmula del Excel y entrega un informe PDF con brechas priorizadas
+por CVSS. Es material complementario: no reemplaza la matriz en Excel.
+
+2. CÓMO OPERA
+- Preparación: lista de verificación obligatoria (URL, navegador,
+  Wappalyzer, acceso a sitios de análisis, carpeta de evidencias y
+  compromiso de análisis pasivo autorizado).
+- Evaluación: una pregunta por pantalla, con una guía "¿Cómo lo hago?"
+  pensada para Windows.
+- Resultado: IMS global, puntaje por dimensión, nivel de madurez, brechas
+  priorizadas y descarga del informe PDF.
+- La herramienta NO escanea ni se conecta a la plataforma evaluada. Solo
+  registra lo que el evaluador observa con herramientas públicas y
+  gratuitas (análisis pasivo).
+
+3. TRATAMIENTO DE DATOS
+- 100 % local: todo el procesamiento, el cálculo y el PDF ocurren en el
+  navegador del usuario. No hay servidor, base de datos ni cuentas.
+- Almacenamiento: el avance se guarda solo en el navegador del equipo
+  (localStorage) para poder retomarlo. No se sincroniza ni se comparte.
+- Portabilidad: el usuario puede exportar o importar su evaluación como
+  archivo .json y descargar el informe en PDF; esos archivos quedan bajo
+  su control.
+- Eliminación: el botón "Borrar y comenzar nueva evaluación" elimina los
+  datos del navegador.
+- Minimización: solo se piden los datos necesarios para el informe. El
+  establecimiento y la plataforma pueden registrarse anonimizados.
+- Sin terceros: no usa analítica, cookies de seguimiento, fuentes ni
+  librerías cargadas desde internet.
+
+4. CONTROLES DE SEGURIDAD
+- Política de seguridad de contenido (CSP) en la versión publicada: el
+  navegador bloquea cualquier conexión a sitios externos, lo que impide
+  que la aplicación envíe datos fuera del equipo.
+- Política "no-referrer": al abrir enlaces externos (SSL Labs, NVD, etc.)
+  no se envía la dirección de la herramienta.
+- Sitio estático: sin backend, así que no hay servidor que atacar ni datos
+  centralizados que puedan filtrarse.
+- Validación de entradas: la URL se valida y los archivos .json importados
+  se revisan antes de cargarlos.
+
+5. CONSIDERACIONES Y LÍMITES
+- Los datos quedan en el equipo del evaluador: se recomienda usar un
+  equipo institucional con sesión personal y borrar la evaluación al
+  terminar si el equipo es compartido.
+- Los archivos exportados (.json y PDF) contienen hallazgos sensibles del
+  establecimiento: deben guardarse y compartirse de forma controlada.
+- Borrar los datos de navegación del equipo elimina el avance no exportado.
+- MESGE diagnostica la postura observable externamente. No certifica
+  cumplimiento normativo ni reemplaza una auditoría o una prueba de
+  penetración autorizada.
+- El uso requiere autorización del establecimiento. Se limita a observar
+  información pública, en línea con la Ley 21.459.
+
+Universidad Mayor · Ingeniería en Ciberseguridad · Proyecto de Título 2026
